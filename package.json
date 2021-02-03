@@ -1,0 +1,33 @@
+{
+  "name": "fastify-starter",
+  "version": "1.0.0",
+  "description": "Fastify starter project all in one.",
+  "private": "true",
+  "type": "module",
+  "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "start:db": "mongod --config mongod.conf",
+    "lint": "eslint src",
+    "validate": "yarn lint",
+    "prettier": "prettier --write src"
+  },
+  "dependencies": {
+    "fastify": "^3.11.0",
+    "mongoose": "^5.11.14"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "husky": "^4.3.8",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
