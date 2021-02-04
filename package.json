@@ -6,24 +6,34 @@
   "type": "module",
   "author": "Alexandre Le Lain <lelain.alexandre@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "start:db": "mongod --config mongod.conf",
+    "start:docker": "docker-compose up",
     "lint": "eslint src",
-    "validate": "yarn lint",
+    "test": "tap --reporter=list --no-esm",
+    "validate": "yarn lint && yarn test",
     "prettier": "prettier --write src"
   },
   "dependencies": {
     "fastify": "^3.11.0",
-    "mongoose": "^5.11.14"
+    "fastify-autoload": "^3.4.2",
+    "fastify-plugin": "^3.0.0",
+    "fastify-swagger": "^4.1.1",
+    "mongoose": "^5.11.14",
+    "mongoose-to-swagger": "^1.1.1"
   },
   "devDependencies": {
     "eslint": "^7.19.0",
     "husky": "^4.3.8",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0"
+    "pretty-quick": "^3.1.0",
+    "tap": "^14.11.0"
   },
   "husky": {
     "hooks": {

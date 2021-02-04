@@ -1,33 +1,24 @@
-import fastify from 'fastify'
 import mongoose from 'mongoose'
 
-import addRoutes from './routes/index.js'
+import buildApp from './app.js'
+import config from '../config.js'
 
-const app = fastify()
+const app = buildApp()
 
-addRoutes(app)
-
-//connected fastify to mongoose
 try {
-  mongoose.connect('mongodb://127.0.0.1:2424/fastify-server', { useNewUrlParser: true, useUnifiedTopology: true })
+  mongoose.connect('mongodb://127.0.0.1:2424/fastify-starter', { useNewUrlParser: true, useUnifiedTopology: true })
 } catch (e) {
   console.error(e)
 }
 
-// hello World
-app.get('/', (request, reply) => {
-  try {
-    reply.code(200).send('Hello, World!')
-  } catch (e) {
-    reply.code(500).send(e)
-  }
-})
-
-//set application listening on port 5000 of localhost
-app.listen(5000, (err, address) => {
+app.listen(config.api.port, (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)
   }
-  console.log(`Server running on ${address}`)
+  console.log(`
+    [Success] Server is up and running on ${address}.
+    ---
+    API's documentation is available here: ${address}/documentation.
+  `)
 })

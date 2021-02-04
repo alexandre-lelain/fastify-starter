@@ -1,12 +1,13 @@
 import mongoose from 'mongoose'
 
-const { Schema, model } = mongoose
+const { Schema, model, models } = mongoose
 
 const userSchema = new Schema({
   name: String,
   age: Number,
 })
 
-const User = model('User', userSchema)
+const User = models.User || model('User', userSchema)
 
+export { userSchema }
 export default User

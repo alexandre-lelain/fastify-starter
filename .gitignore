@@ -2,3 +2,4 @@ node_modules
 data/*
 !data/README.md
 yarn-error.log
+.nyc_output

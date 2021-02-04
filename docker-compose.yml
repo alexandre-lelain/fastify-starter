@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4.3
+    container_name: mongodb
+    command: mongod --port 2424
+    ports:
+      - 2424:2424
+    restart: unless-stopped
