@@ -1,6 +1,6 @@
 import tap from 'tap'
 import buildApp from '../src/app.js'
-import User from '../src/models/User.js'
+import User from '../src/models/user.js'
 
 const { test } = tap
 
