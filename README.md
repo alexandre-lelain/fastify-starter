@@ -6,9 +6,7 @@
 
 ### With Docker
 
-You don't have to use **Docker** to run the DB server, you can directly use **mongod** if you have [MongoDB@^4.0.0](https://www.mongodb.com/try/download/community) installed on your machine.
-
-However, if you don't want to bother with mongod, you can use the docker image in the project. All you need:
+If you don't want to bother with **mongod**, you can use the docker image in the project. All you need:
 
 - Docker server is running
 - `docker-compose` is installed on your machine, and is in your `$PATH`.
@@ -23,17 +21,43 @@ in your `PATH` variable. On Windows, by default you will find them in `C:\Progra
 
 ## Getting Started
 
-1. Run the DB server:
+1. Install dependencies
 
 ```
-yarn start:db //or yarn start:docker
+yarn install
 ```
 
-2. Run the API server:
+2. Run the DB server:
+
+   **With Docker**
+
+```
+yarn start:docker
+```
+
+**...Or with mongod**
+
+```
+yarn start:db
+```
+
+> Note: You can run the DB server as a background task if you want, or you can open another terminal for the next operation.
+
+<br/>
+
+3. Run the API server:
 
 ```
 yarn start
 ```
+
+## Testing
+
+```
+yarn validate
+```
+
+This will run both the linter and the test units.
 
 ## Todo
 
