@@ -37,7 +37,4 @@ yarn start
 
 ## Todo
 
-- **Important:** add testing: https://www.fastify.io/docs/latest/Testing/
-- add logs
-- add auth: https://github.com/fastify/fastify-jwt
 - deploy to heroku: https://www.heroku.com/nodejs

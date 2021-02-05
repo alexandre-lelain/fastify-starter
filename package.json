@@ -20,12 +20,16 @@
     "prettier": "prettier --write src"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "fastify": "^3.11.0",
     "fastify-autoload": "^3.4.2",
+    "fastify-jwt": "^2.3.0",
     "fastify-plugin": "^3.0.0",
     "fastify-swagger": "^4.1.1",
     "mongoose": "^5.11.14",
-    "mongoose-to-swagger": "^1.1.1"
+    "mongoose-to-swagger": "^1.1.1",
+    "pino": "^6.11.0",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "eslint": "^7.19.0",

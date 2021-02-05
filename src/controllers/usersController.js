@@ -1,12 +1,17 @@
 import User from '../models/user.js'
+import { calculateAge } from './../services/userService.js'
 
 export default {
   create: async (request, reply) => {
     try {
       const { body: user } = request
-      const newUser = await User.create(user)
+      const realAge = calculateAge(user.age)
+      const newUser = await User.create({ ...user, age: realAge })
       reply.code(201).send(newUser)
     } catch (e) {
+      if (e.code === 11000) {
+        reply.code(409).send('This email is already taken.')
+      }
       reply.code(500).send(e)
     }
   },

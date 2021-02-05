@@ -1,12 +1,13 @@
 import mongoose from 'mongoose'
 
 import buildApp from './app.js'
+import logger from './logger.js'
 import config from '../config.js'
 
-const app = buildApp()
+const app = buildApp({ logger })
 
 try {
-  mongoose.connect('mongodb://127.0.0.1:2424/fastify-starter', { useNewUrlParser: true, useUnifiedTopology: true })
+  mongoose.connect(config.mongodb.address, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 } catch (e) {
   console.error(e)
 }

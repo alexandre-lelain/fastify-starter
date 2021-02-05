@@ -7,7 +7,7 @@ const { test } = tap
 test('POST /api/users', (t) => {
   t.test('with correct params', async (t) => {
     const app = buildApp()
-    const params = { name: 'Alex', age: 25 }
+    const params = { name: 'Alex', age: 25, email: 'totocap@mail.com', password: 'secret' }
     const responsePayload = { ...params, _id: 'some-id' }
     User.create = () => responsePayload
 
@@ -37,17 +37,16 @@ test('POST /api/users', (t) => {
 })
 
 test('GET /api/users', async (t) => {
-  const app = buildApp()
-  const usersList = [
-    { name: 'Alex', age: 25 },
-    { name: 'Totocap', age: 27 },
-  ]
-  User.find = () => usersList
+  t.test('without authorization', async (t) => {
+    const app = buildApp()
+    User.find = () => {}
 
-  const response = await app.inject({
-    method: 'GET',
-    url: '/api/users',
+    const response = await app.inject({
+      method: 'GET',
+      url: '/api/users',
+    })
+    t.strictEqual(response.statusCode, 401, 'returns a status code of 401')
   })
-  t.strictEqual(response.statusCode, 200, 'returns a status code of 200')
-  t.deepEqual(response.json(), usersList, 'returns the list of users')
+
+  t.done()
 })
