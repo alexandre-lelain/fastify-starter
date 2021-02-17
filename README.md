@@ -1,18 +1,19 @@
 # Fastify Starter
 
+[![ci status](https://github.com/alexandre-lelain/fastify-starter/workflows/CI/badge.svg)](https://github.com/alexandre-lelain/fastify-starter/actions?query=workflow%3ACI)
+
 An all-in-one **Fastify** starter project. It follows a **MVC** structure.
 
 What's in this pack ?
 
 - A default CRUD model
-- Dev DB server: MongoDB
+- DB server: MongoDB
 - DB adapter: Mongoose
 - A login route using jwt
-- Documentation of the API is already set up (using Swagger)
+- Documentation of the API is set up (using Swagger)
 - Unit & Integration tests are set up
 - Lint & prettier installed
-
-[![ci status](https://github.com/alexandre-lelain/fastify-starter/workflows/CI/badge.svg)](https://github.com/alexandre-lelain/fastify-starter/actions?query=workflow%3ACI)
+- CI is set up (using github workflows)
 
 ## Requirements
 
